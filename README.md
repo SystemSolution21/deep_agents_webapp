@@ -46,9 +46,10 @@ deep_agents_webapp/
 To run the application, follow these steps:
 
 1. **(Optional) Set up your environment file:**
-   Create a `.env` file in the root directory and add your API key so it pre-fills in the UI:
+   Create a `.env` file in the root directory and add your API key so it pre-fills in the UI. You can also hide the tool call UI for production by setting `SHOW_TOOL_CALLS`:
    ```env
    GOOGLE_API_KEY=your_api_key_here
+   SHOW_TOOL_CALLS=false  # Set to false to hide tool calling expanders in UI
    ```
 
 2. **Run the application:**
