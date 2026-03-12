@@ -49,7 +49,8 @@ tool_node = ToolNode(tools)
 def get_model():
     # Model will be instantiated inside the node so it uses the env variable lazily
     # fallback to gemini-2.5-flash as it is standard and fast
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+    model = os.getenv(key="LLM_MODEL", default="gemini-2.5-flash")
+    llm = ChatGoogleGenerativeAI(model=model, temperature=0)
     return llm.bind_tools(tools)
 
 
@@ -58,7 +59,7 @@ def call_model(state: AgentState):
     messages = state["messages"]
     model = get_model()
     response = model.invoke(messages)
-    
+
     # If the model returns a list of blocks (common with newer Gemini versions), extract the text
     if isinstance(response.content, list):
         text_parts = []

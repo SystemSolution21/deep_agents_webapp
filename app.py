@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 # Imports from langchain
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 
-# Imports from langgraph
+# Imports local modules
 from agent import graph
 
 # Load environment variables (e.g., GOOGLE_API_KEY from .env)
